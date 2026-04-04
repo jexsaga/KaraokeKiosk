@@ -4,31 +4,55 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./css/main.css" rel="stylesheet">
-        <!-- <title>Document</title> -->
+        <title>Karaokie Kiosk</title>
     </head>
     <body>
         <header class="site-header">
             <div id="top-bar">
                 <button>FX</button>
-                <button>menu</button>
-                <button>music</button>
+                <div id="center-buttons">
+                    <button>menu</button>
+                    <button>music</button>
+                </div>
                 <button>SOS</button>
             </div>
-            
         </header>
-         
          <div id="main-content">
-            <div id ="music-tab">
-                <div>
+            <div id ="music-tab" >
+                <div id="music-block-titles">
                     <h1>Queue</h1>
-                </div>
-                <div>
                     <h1>Catalog</h1>
                 </div>
+                <div id="music-blocks">
+                    <div id="queue-block">
+                        <p>song 1</p>
+                        <p>song 2</p>
+                        <p>song 3</p>
+                    </div>
+                    <div id="catalog-block">
+                        <p>song 1</p>
+                        <p>song 2</p>
+                        <p>song 3</p>
+                    </div>
+                </div>
             </div>
+            <!-- to display food tab correctly need to set display to flex and not block -->
             <div id ="food-tab" style="display:none">
-                <div>
-                    <h1>Queue</h1>
+                <div id="food-block-titles">
+                    <button>Food</button>
+                    <button>Drinks</button>
+                    <button>Appetizers</button>
+                    <button>Specials</button>
+                </div>
+                <div id="food-block">
+                    <!-- exmaple -->
+                    <!-- this div is made to hold columns of divs -->
+                    <!-- insert divs of 3 items  in a rows-->
+                    <div style="display: flex; flex-direction: row; align-items: center; width: 100%">
+                        <p>item1</p>
+                        <p>item2</p>
+                        <p>item3</p>
+                    </div>
                 </div>
             </div>
          </div>
