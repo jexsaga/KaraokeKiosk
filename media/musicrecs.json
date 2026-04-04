@@ -1,0 +1,42 @@
+[
+    { 
+        "genre": "Genre 1",
+        "image": "imgLinkInputHere" 
+    },
+    { 
+        "genre": "Genre 2",
+        "image": "imgLinkInputHere"
+    },
+    { 
+        "genre": "Genre 3",
+        "image": "imgLinkInputHere"
+    },
+    { 
+        "genre": "Genre 4",
+        "image": "imgLinkInputHere" 
+    },
+    { 
+        "genre": "Genre 5",
+        "image": "imgLinkInputHere" 
+    },
+    { 
+        "genre": "Genre 6",
+        "image": "imgLinkInputHere" 
+    },
+    { 
+        "genre": "Genre 7",
+        "image": "imgLinkInputHere" 
+    },
+    { 
+        "genre": "Genre 8",
+        "image": "imgLinkInputHere" 
+    },
+    { 
+        "genre": "Genre 9",
+        "image": "imgLinkInputHere" 
+    },
+    { 
+        "genre": "Genre 10",
+        "image": "imgLinkInputHere" 
+    }
+]
