@@ -29,6 +29,14 @@ body {
     justify-content: space-between;
 }
 
+#fx-overlay {
+    display:block;
+}
+
+#sos-overlay {
+    display:block;
+}
+
 #bottom-bar{
     position: fixed;
     bottom: 0;
