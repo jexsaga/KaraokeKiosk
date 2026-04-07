@@ -5,38 +5,38 @@
     },
     { 
         "genre": "Rock",
-        "image": "imgLinkInputHere"
+        "image": "./media/dog.jpg"
     },
     { 
         "genre": "Hiphop",
-        "image": "imgLinkInputHere"
+        "image": "./media/dog.jpg"
     },
     { 
         "genre": "Country",
-        "image": "imgLinkInputHere" 
+        "image": "./media/dog.jpg" 
     },
     { 
         "genre": "Genre 5",
-        "image": "imgLinkInputHere" 
+        "image": "./media/dog.jpg"
     },
     { 
         "genre": "Genre 6",
-        "image": "imgLinkInputHere" 
+        "image": "./media/dog.jpg" 
     },
     { 
         "genre": "Genre 7",
-        "image": "imgLinkInputHere" 
+        "image": "./media/dog.jpg" 
     },
     { 
         "genre": "Genre 8",
-        "image": "imgLinkInputHere" 
+        "image": "./media/dog.jpg"
     },
     { 
         "genre": "Genre 9",
-        "image": "imgLinkInputHere" 
+        "image": "./media/dog.jpg" 
     },
     { 
         "genre": "Genre 10",
-        "image": "imgLinkInputHere" 
+        "image": "./media/dog.jpg" 
     }
 ]

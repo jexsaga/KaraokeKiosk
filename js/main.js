@@ -1,5 +1,7 @@
 // js for the index.html
 
+let songs = [];
+// let mode = "recos";
 
 // toggle display tabs between menu and music by setting display to flex or none
 function switchTabs(switchTo){
@@ -37,6 +39,9 @@ function setMusic(musicList){
 
 // displays music recommendations by 3s
 function displayMusicRecs(){
+    // mode = "recos";
+    document.getElementById("clear-btn").style.display = "none";
+
     const catalog = document.getElementById("recs");
     catalog.innerHTML = "";
     let div = document.createElement("div");
@@ -141,6 +146,70 @@ let genres = {};
 const genresFile = "./media/genres.json";
 loadData(genresFile, setGenres);
 
-// genre back button
-const genreBack = document.getElementById("genre-back");
-genreBack.addEventListener('click', displayMusicRecs);
+// genre back button   //NINA : i commented temporarly this bc it made the search not working
+
+//const genreBack = document.getElementById("genre-back");
+//genreBack.addEventListener('click', displayMusicRecs);
+
+
+//----------------
+//search bar
+//---------------------
+
+//when search is clicked and inputed, list of songs appears
+//set genres
+const searchbar = document.getElementById("searchbar");
+
+function setSongs(songsList){
+    songs = songsList;
+}
+
+
+const songsFile = "./media/musicdropdown.json"
+loadData(songsFile, setSongs)
+
+
+//display the songs that fit with the input in the searchbar
+function searchSongs() {
+    let input = document.getElementById('searchbar').value
+    input = input.toLowerCase();
+
+    const catalogBlock = document.getElementById("recs");
+    catalogBlock.innerHTML = "";
+
+    document.getElementById("clear-btn").style.display = "block";
+
+    let filtered;
+    if(input){
+        filtered = songs.filter(s => s.song.toLowerCase().includes(input) || s.artist.toLowerCase().includes(input));
+    }
+    else{
+        filtered = songs;
+    }
+    
+    for (let i = 0; i < filtered.length; i++){
+        let song = filtered[i];
+        let div = document.createElement("div");
+        div.className = "songInGenre";
+        let p_song = document.createElement("p");
+        p_song.innerText = song.song;
+        let p_artist = document.createElement("p");
+        p_artist.innerText = song.artist;
+        p_artist.style.fontSize = 'smaller';
+        div.appendChild(p_song);
+        div.appendChild(p_artist);
+        catalogBlock.appendChild(div);
+        div = document.createElement("div");
+        div.className = "songInGenre";
+    }
+
+    
+}
+
+//when the little X is clicked everithingue diseapear
+function clearSearch(){
+    document.getElementById("searchbar").value = "";
+    document.getElementById("clear-btn").style.display = "none";
+    displayMusicRecs();
+}
+

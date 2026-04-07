@@ -37,7 +37,14 @@
                 <div id="music-blocks">
                     <div id="queue-block"></div>
                     <div id="catalog-block">
-                        <button id="genre-back">back</button>
+                        <div id="search-container">
+                            <input id="searchbar" 
+                                onkeyup="searchSongs()" 
+                                type="text" name="search" 
+                                placeholder="Search songs..">
+                            <button id="clear-btn" onclick="clearSearch()">✕</button>
+                        </div>
+                        <!-- <button id="genre-back">back</button> -->
                         <div id="recs"></div>
                     </div>
                 </div>
