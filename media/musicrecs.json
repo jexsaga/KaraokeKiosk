@@ -1,7 +1,7 @@
 [
     { 
         "genre": "Genre 1",
-        "image": "imgLinkInputHere" 
+        "image": "./media/dog.jpg" 
     },
     { 
         "genre": "Genre 2",
