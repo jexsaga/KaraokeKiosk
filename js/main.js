@@ -30,9 +30,15 @@ async function loadData(file, func){
   }
 }
 
+function setMusic(musicList){
+    music = musicList;
+    displayMusicRecs();
+}
+
 // displays music recommendations by 3s
-function displayMusicRecs(music){
-    const catalog = document.getElementById("catalog-block");
+function displayMusicRecs(){
+    const catalog = document.getElementById("recs");
+    catalog.innerHTML = "";
     let div = document.createElement("div");
     div.className = "row-recs";
     for (let i = 0; i < music.length; i++){
@@ -40,6 +46,7 @@ function displayMusicRecs(music){
         p.innerText = music[i].genre;
         p.style.backgroundImage = `url(${music[i].image})`;
         p.className = "genre";
+        p.addEventListener('click', () => displaySongsByGenre(music[i].genre));
         console.log(music[i].image)
         div.appendChild(p);
         if((i + 1) % 3 === 0){
@@ -73,6 +80,35 @@ function displayQueue(){
     }
 }
 
+//set genres
+function setGenres(genresList){
+    genres = genresList;
+}
+
+// displays recommended songs by genre
+function displaySongsByGenre(requestGenre){
+    const catalogBlock = document.getElementById("recs");
+    catalogBlock.innerHTML = "";
+    let div = document.createElement("div");
+    div.className = "songInGenre";
+    let genre = genres[requestGenre];
+    console.log("requestGenre:", requestGenre);
+    console.log(genre);
+    for (let i = 0; i < genre.length; i++){
+        let song = genre[i];
+        let p_song = document.createElement("p");
+        p_song.innerText = song.name;
+        let p_artist = document.createElement("p");
+        p_artist.innerText = song.artist;
+        p_artist.style.fontSize = 'smaller';
+        div.appendChild(p_song);
+        div.appendChild(p_artist);
+        catalogBlock.appendChild(div);
+        div = document.createElement("div");
+        div.className = "songInGenre";
+    }
+}
+
 // music/menu buttons
 const musicBtn = document.getElementById("musicBtn");
 const menuBtn = document.getElementById("menuBtn");
@@ -80,8 +116,9 @@ musicBtn.addEventListener('click', () => switchTabs("music"));
 menuBtn.addEventListener('click', () => switchTabs("menu"));
 
 // fetch catalog data and display
+let music = [];
 const musicRecsFile = "./media/musicrecs.json";
-loadData(musicRecsFile, displayMusicRecs);
+loadData(musicRecsFile, setMusic);
 
 // temp queue
 let queue = [
@@ -98,3 +135,12 @@ let queue = [
     {'name' : 'La vie en rose', 'artist' : 'so and so'},
 ]
 displayQueue();
+
+// genre types
+let genres = {};
+const genresFile = "./media/genres.json";
+loadData(genresFile, setGenres);
+
+// genre back button
+const genreBack = document.getElementById("genre-back");
+genreBack.addEventListener('click', displayMusicRecs);

@@ -1,18 +1,18 @@
 [
     { 
-        "genre": "Genre 1",
+        "genre": "Pop",
         "image": "./media/dog.jpg" 
     },
     { 
-        "genre": "Genre 2",
+        "genre": "Rock",
         "image": "imgLinkInputHere"
     },
     { 
-        "genre": "Genre 3",
+        "genre": "Hiphop",
         "image": "imgLinkInputHere"
     },
     { 
-        "genre": "Genre 4",
+        "genre": "Country",
         "image": "imgLinkInputHere" 
     },
     { 

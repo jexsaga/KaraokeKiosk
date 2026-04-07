@@ -1,0 +1,58 @@
+{
+    "Pop" : [
+        {
+            "artist": "Taylor Swift",
+            "song": "Love Story"
+        },
+        {
+            "artist": "Ed Sheeran",
+            "song": "Shape of You"
+        },
+        {
+            "artist": "Ariana Grande",
+            "song": "Thank U, Next"
+        }
+    ],
+    "Rock" : [
+        {
+            "artist": "Queen",
+            "song": "Bohemian Rhapsody"
+        },
+        {
+            "artist": "Led Zeppelin",
+            "song": "Stairway to Heaven"
+        },
+        {
+            "artist": "The Rolling Stones",
+            "song": "(I Can't Get No) Satisfaction"
+        }
+    ],
+    "Hiphop" : [
+        {
+            "artist": "Kendrick Lamar",
+            "song": "HUMBLE."
+        },
+        {
+            "artist": "Drake",
+            "song": "God's Plan"
+        },
+        {
+            "artist": "Cardi B",
+            "song": "Bodak Yellow"
+        }
+    ],
+    "Country" : [
+        {
+            "artist": "Johnny Cash",
+            "song": "Ring of Fire"
+        },
+        {
+            "artist": "Dolly Parton",
+            "song": "Jolene"
+        },
+        {
+            "artist": "Garth Brooks",
+            "song": "Friends in Low Places"
+        }
+    ]
+}
