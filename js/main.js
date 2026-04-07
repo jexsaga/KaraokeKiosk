@@ -1,5 +1,7 @@
 // js for the index.html
 
+
+// toggle display tabs between menu and music by setting display to flex or none
 function switchTabs(switchTo){
     const musicTab = document.getElementById("music-tab");
     const menuTab = document.getElementById("food-tab");
@@ -12,6 +14,7 @@ function switchTabs(switchTo){
     }
 }
 
+// load JSON from file and call function to handle said data
 async function loadData(file, func){
   try {
     const response = await fetch(file);
@@ -27,7 +30,8 @@ async function loadData(file, func){
   }
 }
 
-function displayMusicReqs(music){
+// displays music recommendations by 3s
+function displayMusicRecs(music){
     const catalog = document.getElementById("catalog-block");
     let div = document.createElement("div");
     div.className = "row-recs";
@@ -49,6 +53,7 @@ function displayMusicReqs(music){
     }
 }
 
+// displays the queue by adding title and artist in <p> to a div and adding to the queue block element
 function displayQueue(){
     const queueBlock = document.getElementById("queue-block");
     let div = document.createElement("div");
@@ -68,16 +73,17 @@ function displayQueue(){
     }
 }
 
-
+// music buttons
 const musicBtn = document.getElementById("musicBtn");
 const menuBtn = document.getElementById("menuBtn");
 musicBtn.addEventListener('click', () => switchTabs("music"));
 menuBtn.addEventListener('click', () => switchTabs("menu"));
 
+// fetch catalog data and display
+const musicRecsFile = "./media/musicrecs.json";
+loadData(musicRecsFile, displayMusicRecs);
 
-const musicReqsFile = "./media/musicrecs.json";
-loadData(musicReqsFile, displayMusicReqs);
-
+// temp queue
 let queue = [
     {'name' : 'La vie en rose', 'artist' : 'so and so'},
     {'name' : 'La vie en rose', 'artist' : 'so and so'},
