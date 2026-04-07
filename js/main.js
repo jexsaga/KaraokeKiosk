@@ -73,7 +73,7 @@ function displayQueue(){
     }
 }
 
-// music buttons
+// music/menu buttons
 const musicBtn = document.getElementById("musicBtn");
 const menuBtn = document.getElementById("menuBtn");
 musicBtn.addEventListener('click', () => switchTabs("music"));
