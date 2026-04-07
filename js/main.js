@@ -12,7 +12,7 @@ function switchTabs(switchTo){
     }
 }
 
-async function loadData(file){
+async function loadData(file, func){
   try {
     const response = await fetch(file);
     if (!response.ok) {
@@ -20,7 +20,7 @@ async function loadData(file){
     }
 
     const result = await response.json();
-    displayMusicReqs(result);
+    func(result);
     console.log(result);
   } catch (error) {
     console.error(error.message);
@@ -29,7 +29,6 @@ async function loadData(file){
 
 function displayMusicReqs(music){
     const catalog = document.getElementById("catalog-block");
-    let divArray = [];
     let div = document.createElement("div");
     div.className = "row-recs";
     for (let i = 0; i < music.length; i++){
@@ -41,7 +40,6 @@ function displayMusicReqs(music){
         div.appendChild(p);
         if((i + 1) % 3 === 0){
             catalog.appendChild(div);
-            divArray = [];
             div = document.createElement("div");
             div.className = "row-recs";
         } 
@@ -78,7 +76,7 @@ menuBtn.addEventListener('click', () => switchTabs("menu"));
 
 
 const musicReqsFile = "./media/musicrecs.json";
-loadData(musicReqsFile);
+loadData(musicReqsFile, displayMusicReqs);
 
 let queue = [
     {'name' : 'La vie en rose', 'artist' : 'so and so'},
