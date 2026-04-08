@@ -74,7 +74,7 @@ function displayQueue(){
     for (let i = 0; i < queue.length; i++){
         let song = queue[i];
         let p_song = document.createElement("p");
-        p_song.innerText = song.name;
+        p_song.innerText = song.song;
         let p_artist = document.createElement("p");
         p_artist.innerText = song.artist;
         p_artist.style.fontSize = 'smaller';
@@ -97,31 +97,53 @@ function displayQueue(){
 }
 
 //set genres
-function setGenres(genresList){
-    genres = genresList;
-}
+// function setGenres(genresList){
+//     genres = genresList;
+// }
 
 // displays recommended songs by genre
 function displaySongsByGenre(requestGenre){
     const catalogBlock = document.getElementById("recs");
     catalogBlock.innerHTML = "";
-    let div = document.createElement("div");
-    div.className = "songInGenre";
-    let genre = genres[requestGenre];
-    console.log("requestGenre:", requestGenre);
-    console.log(genre);
+
+    // let div = document.createElement("div");
+    // div.className = "songInGenre";
+    // let genre = genres[requestGenre];
+    // console.log("requestGenre:", requestGenre);
+    // console.log(genre);
+
+    document.getElementById("clear-btn").style.display = "block";
+
+    const genre = songs.filter(s => s.genre === requestGenre);
     for (let i = 0; i < genre.length; i++){
         let song = genre[i];
+        
+        let div = document.createElement("div");
+        div.className = "songInGenre";
+
+        //infos
         let p_song = document.createElement("p");
-        p_song.innerText = song.name;
+        p_song.innerText = song.song;
         let p_artist = document.createElement("p");
         p_artist.innerText = song.artist;
         p_artist.style.fontSize = 'smaller';
+
+        //duration
+        let p_duration = document.createElement("p");
+        const min = Math.floor(song.duration / 60);
+        const sec = song.duration%60;
+        p_duration.innerText = `${min}:${sec}`;
+
+        //add
+        let btn = document.createElement("button");
+        btn.innerText="+";
+        btn.addEventListener('click', () => addToQueue(song));
+
         div.appendChild(p_song);
         div.appendChild(p_artist);
+        div.appendChild(p_duration);
+        div.appendChild(btn);
         catalogBlock.appendChild(div);
-        div = document.createElement("div");
-        div.className = "songInGenre";
     }
 }
 
@@ -138,17 +160,10 @@ loadData(musicRecsFile, setMusic);
 
 // temp queue
 let queue = [
-    {'name' : 'La vie en rose 0', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose 1', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose 2', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose 3', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose 4', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose 5', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose 6', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose 7', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose 8', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose 9', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose 10', 'artist' : 'so and so'},
+    {'song' : 'La vie en rose 0', 'artist' : 'so and so'},
+    {'song' : 'La vie en rose 1', 'artist' : 'so and so'},
+    {'song' : 'La vie en rose 2', 'artist' : 'so and so'},
+    
 ]
 displayQueue();
 
@@ -159,9 +174,9 @@ function removeFromQueue(index){
 }
 
 // genre types
-let genres = {};
-const genresFile = "./media/genres.json";
-loadData(genresFile, setGenres);
+// let genres = {};
+// const genresFile = "./media/genres.json";
+// loadData(genresFile, setGenres);
 
 // genre back button   //NINA : i commented temporarly this bc it made the search not working
 
@@ -182,7 +197,7 @@ function setSongs(songsList){
 }
 
 
-const songsFile = "./media/musicdropdown.json"
+const songsFile = "./media/music.json"
 loadData(songsFile, setSongs)
 
 
@@ -205,19 +220,36 @@ function searchSongs() {
     }
     
     for (let i = 0; i < filtered.length; i++){
+
         let song = filtered[i];
         let div = document.createElement("div");
         div.className = "songInGenre";
+
+        //infos
         let p_song = document.createElement("p");
         p_song.innerText = song.song;
         let p_artist = document.createElement("p");
         p_artist.innerText = song.artist;
         p_artist.style.fontSize = 'smaller';
+
+        //duration
+        let p_duration = document.createElement("p");
+        const min = Math.floor(song.duration / 60);
+        const sec = song.duration%60;
+        p_duration.innerText = `${min}:${sec}`;
+
+        //add
+        let btn = document.createElement("button");
+        btn.innerText="+";
+        btn.addEventListener('click', () => addToQueue(song));
+
         div.appendChild(p_song);
         div.appendChild(p_artist);
+        div.appendChild(p_duration);
+        div.appendChild(btn);
         catalogBlock.appendChild(div);
-        div = document.createElement("div");
-        div.className = "songInGenre";
+        // div = document.createElement("div");
+        // div.className = "songInGenre";
     }
 
     
@@ -257,13 +289,19 @@ function nextInQueue() {
     currentSongDiv.innerHTML = "";
 
     let p_song = document.createElement("p");
-    p_song.innerText = newCurrentSong.name;
+    p_song.innerText = newCurrentSong.song;
     let p_artist = document.createElement("p");
     p_artist.innerText = newCurrentSong.artist;
     p_artist.style.fontSize = 'smaller';
     currentSongDiv.appendChild(p_song);
     currentSongDiv.appendChild(p_artist);
 
+    displayQueue();
+}
+
+//add a song to the queue
+function addToQueue(song){
+    queue.push(song);
     displayQueue();
 }
 const nextBtn = document.getElementById("nextBtn");
