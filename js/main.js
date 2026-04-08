@@ -77,8 +77,15 @@ function displayQueue(){
         let p_artist = document.createElement("p");
         p_artist.innerText = song.artist;
         p_artist.style.fontSize = 'smaller';
+        let remove_btn = document.createElement("button");
+        remove_btn.className = "removeBtn";
+        let remove_icon = document.createElement("img");
+        remove_icon.className = "removeIcon";
+        remove_icon.src = "/media/remove_btn.png";
+        remove_btn.appendChild(remove_icon);
         div.appendChild(p_song);
         div.appendChild(p_artist);
+        div.appendChild(remove_btn);
         queueBlock.appendChild(div);
         div = document.createElement("div");
         div.className = "songInQueue";

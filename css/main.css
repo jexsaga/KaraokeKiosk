@@ -85,6 +85,15 @@ body {
     height: 300px;
 }
 
+.removeBtn, .removeIcon {
+    background-color:transparent;
+    border: 0;
+}
+
+.removeIcon {
+    height: 20px;
+}
+
 .row-recs{
     display: flex;
     flex-direction: row;
@@ -134,7 +143,7 @@ body {
 }
 
 #songPlayingText {
-    padding-left: 40px;
+    padding-left: 20px;
 }
 
 #food-tab{
