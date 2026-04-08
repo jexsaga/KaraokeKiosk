@@ -80,6 +80,9 @@ function displayQueue(){
         p_artist.style.fontSize = 'smaller';
         let remove_btn = document.createElement("button");
         remove_btn.className = "removeBtn";
+        remove_btn.addEventListener("click", () => {
+            removeFromQueue(i);
+        });
         let remove_icon = document.createElement("img");
         remove_icon.className = "removeIcon";
         remove_icon.src = "/media/remove_btn.png";
@@ -150,8 +153,9 @@ let queue = [
 displayQueue();
 
 // removing songs from queue
-function removeFromQueue(){
-    //
+function removeFromQueue(index){
+    queue.splice(index, 1);
+    displayQueue();
 }
 
 // genre types
@@ -226,7 +230,9 @@ function clearSearch(){
     displayMusicRecs();
 }
 
-// bottom bar tingz 
+//----------------
+// bottom bar
+//--------------------- 
 
 // play/pause toggle to change button state 
 const playPauseBtn = document.getElementById("playPauseBtn");
@@ -260,6 +266,5 @@ function nextInQueue() {
 
     displayQueue();
 }
-
 const nextBtn = document.getElementById("nextBtn");
 nextBtn.addEventListener("click", nextInQueue);
