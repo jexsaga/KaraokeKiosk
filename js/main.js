@@ -68,6 +68,7 @@ function displayMusicRecs(){
 // displays the queue by adding title and artist in <p> to a div and adding to the queue block element
 function displayQueue(){
     const queueBlock = document.getElementById("queue-block");
+    queueBlock.innerHTML="";
     let div = document.createElement("div");
     div.className = "songInQueue";
     for (let i = 0; i < queue.length; i++){
@@ -134,19 +135,24 @@ loadData(musicRecsFile, setMusic);
 
 // temp queue
 let queue = [
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
-    {'name' : 'La vie en rose', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 0', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 1', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 2', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 3', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 4', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 5', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 6', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 7', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 8', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 9', 'artist' : 'so and so'},
+    {'name' : 'La vie en rose 10', 'artist' : 'so and so'},
 ]
 displayQueue();
+
+// removing songs from queue
+function removeFromQueue(){
+    //
+}
 
 // genre types
 let genres = {};
@@ -236,3 +242,24 @@ playPauseBtn.addEventListener("click", () => {
     }
     isPlaying = !isPlaying;
 });
+
+// moving next in the queue 
+function nextInQueue() {
+    let newCurrentSong = queue.shift();
+    console.log("Updated queue:", queue);
+    let currentSongDiv = document.getElementById("currentSong");
+    currentSongDiv.innerHTML = "";
+
+    let p_song = document.createElement("p");
+    p_song.innerText = newCurrentSong.name;
+    let p_artist = document.createElement("p");
+    p_artist.innerText = newCurrentSong.artist;
+    p_artist.style.fontSize = 'smaller';
+    currentSongDiv.appendChild(p_song);
+    currentSongDiv.appendChild(p_artist);
+
+    displayQueue();
+}
+
+const nextBtn = document.getElementById("nextBtn");
+nextBtn.addEventListener("click", nextInQueue);
