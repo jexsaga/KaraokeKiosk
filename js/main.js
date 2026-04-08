@@ -213,3 +213,19 @@ function clearSearch(){
     displayMusicRecs();
 }
 
+// bottom bar tingz 
+
+// play/pause toggle to change button state 
+const playPauseBtn = document.getElementById("playPauseBtn");
+const playBtnIcon = document.getElementById("playBtnIcon");
+let isPlaying = true; 
+playPauseBtn.addEventListener("click", () => {
+    if (isPlaying) {
+        playBtnIcon.src = "/media/pause_btn.png";
+        playBtnIcon.alt = "pause";
+    } else {
+        playBtnIcon.src = "/media/play_btn.png";
+        playBtnIcon.alt = "play";
+    }
+    isPlaying = !isPlaying;
+});

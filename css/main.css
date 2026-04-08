@@ -45,6 +45,8 @@ body {
     background-color: #333;
     color: white;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 #music-tab{
@@ -119,6 +121,20 @@ body {
     height: 50px;
     justify-content: space-around;
     text-align: center;
+}
+
+#playPauseBtn, #nextBtn {
+    background-color: transparent;
+    box-shadow: 0;
+}
+
+#playBtnIcon, #nextBtnIcon {
+    height: 50px;
+    box-shadow: 0;
+}
+
+#songPlayingText {
+    padding-left: 40px;
 }
 
 #food-tab{
