@@ -164,6 +164,7 @@ button {
     height: 100px;
     background-size: cover;
     background-position: center;
+    color: whitesmoke;
 }
 
 .songInQueue{

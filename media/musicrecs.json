@@ -1,42 +1,42 @@
 [
     { 
         "genre": "Pop",
-        "image": "./media/dog.jpg" 
+        "image": "./media/genres_sqr.png" 
     },
     { 
         "genre": "Rock",
-        "image": "./media/dog.jpg"
+        "image": "./media/genres_sqr.png"
     },
     { 
         "genre": "Hiphop",
-        "image": "./media/dog.jpg"
+        "image": "./media/genres_sqr.png"
     },
     { 
         "genre": "Country",
-        "image": "./media/dog.jpg" 
+        "image": "./media/genres_sqr.png" 
     },
     { 
         "genre": "Genre 5",
-        "image": "./media/dog.jpg"
+        "image": "./media/genres_sqr.png"
     },
     { 
         "genre": "Genre 6",
-        "image": "./media/dog.jpg" 
+        "image": "./media/genres_sqr.png" 
     },
     { 
         "genre": "Genre 7",
-        "image": "./media/dog.jpg" 
+        "image": "./media/genres_sqr.png" 
     },
     { 
         "genre": "Genre 8",
-        "image": "./media/dog.jpg"
+        "image": "./media/genres_sqr.png"
     },
     { 
         "genre": "Genre 9",
-        "image": "./media/dog.jpg" 
+        "image": "./media/genres_sqr.png" 
     },
     { 
         "genre": "Genre 10",
-        "image": "./media/dog.jpg" 
+        "image": "./media/genres_sqr.png" 
     }
 ]
