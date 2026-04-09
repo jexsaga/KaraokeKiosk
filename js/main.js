@@ -163,13 +163,21 @@ let music = [];
 const musicRecsFile = "./media/musicrecs.json";
 loadData(musicRecsFile, setMusic);
 
+function setSongs(songsList){
+    songs = songsList;
+    addToQueue(songs[1]);
+    addToQueue(songs[4]);
+}
+
 // temp queue
 let queue = [
-    {'song' : 'La vie en rose 0', 'artist' : 'so and so'},
-    {'song' : 'La vie en rose 1', 'artist' : 'so and so'},
-    {'song' : 'La vie en rose 2', 'artist' : 'so and so'},
+    // {'song' : 'La vie en rose 0', 'artist' : 'so and so'},
+    // {'song' : 'La vie en rose 1', 'artist' : 'so and so'},
+    // {'song' : 'La vie en rose 2', 'artist' : 'so and so'},
+    // songs[0]
     
 ]
+
 displayQueue();
 
 // removing songs from queue
@@ -197,9 +205,7 @@ function removeFromQueue(index){
 //set genres
 const searchbar = document.getElementById("searchbar");
 
-function setSongs(songsList){
-    songs = songsList;
-}
+
 
 
 const songsFile = "./media/music.json"
