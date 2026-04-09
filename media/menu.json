@@ -1,162 +1,242 @@
 [
-    {   "item": "item",
-        "price": "price 1",
-        "type": "food"
+    {   "item": "Hamburger",
+        "price": "€8.00",
+        "type": "food", 
+        "image": "dog.jpg",
+        "description": "Classic beef hamburger"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "food"
+    {   "item": "Hot Dog",
+        "price": "€6.00",
+        "type": "food",
+        "image": "dog.jpg",
+        "description": "Classic beef hot dog"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "food"
+    {   "item": "Cheeseburger",
+        "price": "€9.00",
+        "type": "food",
+        "image": "dog.jpg",
+        "description": "Beef hamburger with cheese"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "food"
+    {   "item": "Veggie Burger",
+        "price": "€10.00",
+        "type": "food",
+        "image": "dog.jpg",
+        "description": "Burger with veggie patty"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "food"
+    {   "item": "Fish and Chips",
+        "price": "€8.00",
+        "type": "food",
+        "image": "dog.jpg",
+        "description": "Battered cod and fries"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "food"
+    {   "item": "Double Cheeseburger",
+        "price": "€13.00",
+        "type": "food",
+        "image": "dog.jpg",
+        "description": "Two patties, two cheeses"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "food"
+    {   "item": "Fish Burger",
+        "price": "€9.00",
+        "type": "food",
+        "image": "dog.jpg",
+        "description": "Burger with fish patty"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "food"
+    {   "item": "Chicken Burger",
+        "price": "€9.00",
+        "type": "food",
+        "image": "dog.jpg",
+        "description": "Burger with crispy chicken patty"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "food"
+    {   "item": "Shoyu Ramen",
+        "price": "€12.00",
+        "type": "food",
+        "image": "dog.jpg",
+        "description": "Noodles in pork broth"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "food"
+    {   "item": "Miso Ramen",
+        "price": "€11.00",
+        "type": "food",
+        "image": "dog.jpg",
+        "description": "Noodles in vegan miso broth"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "drink"
+    {   "item": "Soda",
+        "price": "€4.00",
+        "type": "drink",
+        "image": "dog.jpg",
+        "description": "Your choice of Coke, Sprite, or Fanta"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "drink"
+    {   "item": "Martini",
+        "price": "€7.00",
+        "type": "drink",
+        "image": "dog.jpg",
+        "description": "Gin, vermouth, olive"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "drink"
+    {   "item": "Gin & Tonic",
+        "price": "€7.00",
+        "type": "drink",
+        "image": "dog.jpg",
+        "description": "Gin, tonic, lime juice"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "drink"
+    {   "item": "Negroni",
+        "price": "€7.00",
+        "type": "drink",
+        "image": "dog.jpg",
+        "description": "Gin, campari, vermouth"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "drink"
+    {   "item": "Aperol Spritz",
+        "price": "€7.00",
+        "type": "drink",
+        "image": "dog.jpg",
+        "description": "Aperol, prosecco, club soda"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "drink"
+    {   "item": "B-52",
+        "price": "€7.00",
+        "type": "drink",
+        "image": "dog.jpg",
+        "description": "Coffee liqueur, Bailey's, Grand Marnier"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "drink"
+    {   "item": "Vodka Cranberry",
+        "price": "€7.00",
+        "type": "drink",
+        "image": "dog.jpg",
+        "description": "Vodka, cranberry juice, lime"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "drink"
+    {   "item": "Vodka Red Bull",
+        "price": "€7.00",
+        "type": "drink",
+        "image": "dog.jpg",
+        "description": "Vodka, classic Red Bull"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "drink"
+    {   "item": "Espresso",
+        "price": "€3.00",
+        "type": "drink",
+        "image": "dog.jpg",
+        "description": "Arabica beans"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "drink"
+    {   "item": "Green Tea",
+        "price": "€3.00",
+        "type": "drink",
+        "image": "dog.jpg",
+        "description": "Herbal jasmine or mint tea"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "appetizer"
+    {   "item": "Small Fries",
+        "price": "€3.00",
+        "type": "appetizer",
+        "image": "dog.jpg",
+        "description": "French fries"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "appetizer"
+    {   "item": "Medium Fries",
+        "price": "€5.00",
+        "type": "appetizer",
+        "image": "dog.jpg",
+        "description": "French fries"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "appetizer"
+    {   "item": "Large Fries",
+        "price": "€6.00",
+        "type": "appetizer",
+        "image": "dog.jpg",
+        "description": "French fries"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "appetizer"
+    {   "item": "Onion Rings",
+        "price": "€4.00",
+        "type": "appetizer",
+        "image": "dog.jpg",
+        "description": "Battered onion rings"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "appetizer"
+    {   "item": "Chicken Nuggets",
+        "price": "€6.00",
+        "type": "appetizer",
+        "image": "dog.jpg",
+        "description": "8-pc. chicken nuggets"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "appetizer"
+    {   "item": "Shrimp Cocktail",
+        "price": "€7.00",
+        "type": "appetizer",
+        "image": "dog.jpg",
+        "description": "8 shrimp and cocktail sauce"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "appetizer"
+    {   "item": "Shrimp Tempura",
+        "price": "€4.00",
+        "type": "appetizer",
+        "image": "dog.jpg",
+        "description": "4 breaded and fried shrimp"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "appetizer"
+    {   "item": "Steamed Edamame",
+        "price": "€4.00",
+        "type": "appetizer",
+        "image": "dog.jpg",
+        "description": "Steamed and salted soybeans"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "appetizer"
+    {   "item": "Veg and Dip",
+        "price": "€6.00",
+        "type": "appetizer",
+        "image": "dog.jpg",
+        "description": "Assorted vegetables and dip"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "appetizer"
+    {   "item": "Mozzarella Sticks",
+        "price": "€6.00",
+        "type": "appetizer",
+        "image": "dog.jpg",
+        "description": "8 mozzarella sticks"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "special"
+    {   "item": "Hamburger and Fries",
+        "price": "€15.00",
+        "type": "special",
+        "image": "dog.jpg",
+        "description": "Hamburger and small french fries"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "special"
+    {   "item": "Cheeseburger and Fries",
+        "price": "€16.00",
+        "type": "special",
+        "image": "dog.jpg",
+        "description": "Cheeseburger and small french fries"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "special"
+    {   "item": "Nuggets and Fries",
+        "price": "€10.00",
+        "type": "special",
+        "image": "dog.jpg",
+        "description": "8-pc. chicken nuggets and medium french fries"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "special"
+    {   "item": "Full Hamburger Combo",
+        "price": "€16.00",
+        "type": "special",
+        "image": "dog.jpg",
+        "description": "Hamburger, small french fries, soda"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "special"
+    {   "item": "Full Cheeseburger Combo",
+        "price": "€17.00",
+        "type": "special",
+        "image": "dog.jpg",
+        "description": "Cheeseburger, small french fries, soda"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "special"
+    {   "item": "Appetizer Flight",
+        "price": "€13.00",
+        "type": "special",
+        "image": "dog.jpg",
+        "description": "Medium fries, onion rings, chicken nuggets"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "special"
+    {   "item": "Food & Cocktail",
+        "price": "€15.00",
+        "type": "special",
+        "image": "dog.jpg",
+        "description": "Any food item and any cocktail of your choice"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "special"
+    {   "item": "Cocktail Flight",
+        "price": "€25.00",
+        "type": "special",
+        "image": "dog.jpg",
+        "description": "4 cocktails of your choice"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "special"
+    {   "item": "Soda Flight",
+        "price": "€15.00",
+        "type": "special",
+        "image": "dog.jpg",
+        "description": "4 sodas of your choice"
     },
-    {   "item": "item",
-        "price": "price 1",
-        "type": "special"
+    {   "item": "Bottomless Drink",
+        "price": "€20.00",
+        "type": "special",
+        "image": "dog.jpg",
+        "description": "Any drink with unlimited refills"
     }
 ]
