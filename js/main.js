@@ -308,6 +308,44 @@ const nextBtn = document.getElementById("nextBtn");
 nextBtn.addEventListener("click", nextInQueue);
 
 
+// help and fx
+function displayFX(){
+    const fxDiv = document.getElementById("fx-overlay");
+    if (fxDiv.style.display == "none" || fxDiv.style.display == ""){
+        fxDiv.style.display = "flex";
+    } else {
+        fxDiv.style.display = "none";
+    }
+}
+
+function displayHelp(){
+    const helpDiv = document.getElementById("help-overlay");
+    console.log(helpDiv.style.display);
+    if (helpDiv.style.display == "none" || helpDiv.style.display == ""){
+        helpDiv.style.display = "flex";
+    } else {
+        helpDiv.style.display = "none";
+    }
+
+}
+
+
+const fxBtn = document.getElementById("fx");
+fxBtn.addEventListener('click', displayFX);
+const fx1Btn = document.getElementById("fx1");
+fx1Btn.addEventListener('click', displayFX);
+const fx2Btn = document.getElementById("fx2");
+fx2Btn.addEventListener('click', displayFX);
+const fx3Btn = document.getElementById("fx3");
+fx3Btn.addEventListener('click', displayFX);
+const helpBtn = document.getElementById("help");
+helpBtn.addEventListener('click', displayHelp);
+const helpYesBtn = document.getElementById("help-yes");
+helpYesBtn.addEventListener('click', displayHelp);
+const helpNoBtn = document.getElementById("help-no");
+helpNoBtn.addEventListener('click', displayHelp);
+
+
 
 //--------------
 //Menuuuuuuuuu
