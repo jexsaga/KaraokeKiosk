@@ -10,7 +10,11 @@ function switchTabs(switchTo){
     if (switchTo == "music"){
         musicTab.style.display = "flex";
         menuTab.style.display = "none";
+        menuBtn.classList.add("inactiveTab");
+        musicBtn.classList.remove("inactiveTab");
     } else {
+        musicBtn.classList.add("inactiveTab");
+        menuBtn.classList.remove("inactiveTab");
         musicTab.style.display = "none";
         menuTab.style.display = "flex";
     }
@@ -150,6 +154,7 @@ function displaySongsByGenre(requestGenre){
 // music/menu buttons
 const musicBtn = document.getElementById("musicBtn");
 const menuBtn = document.getElementById("menuBtn");
+menuBtn.classList.add("inactiveTab");
 musicBtn.addEventListener('click', () => switchTabs("music"));
 menuBtn.addEventListener('click', () => switchTabs("menu"));
 
