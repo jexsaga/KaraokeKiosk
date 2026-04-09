@@ -1,57 +1,57 @@
 [
-    {   "song": "Song 1",
-        "artist": "Artist 1",
+    {   "song": "Not Like Us",
+        "artist": "Kendrick Lamar",
         "genre" : "Hiphop",
-        "duration": 135
+        "duration": 273
     },
     {   "song": "Song 2",
-        "artist": "Artist 2",
-        "genre" : "Hiphop",
-        "duration": 135
+        "artist": "Blur",
+        "genre" : "Rock",
+        "duration": 121
     },
-    {   "song": "Song 3",
-        "artist": "Artist 3",
-        "genre" : "Hiphop",
-        "duration": 135
+    {   "song": "Jolene",
+        "artist": "Dolly Parton",
+        "genre" : "Country",
+        "duration": 163
     },
-    {   "song": "Song 4",
-        "artist": "Artist 4",
-        "genre" : "Hiphop",
-        "duration": 135
+    {   "song": "Dancing Queen",
+        "artist": "ABBA",
+        "genre" : "Pop",
+        "duration": 231
     },
-    {   "song": "Song 5",
-        "artist": "Artist 5",
-        "genre" : "Hiphop",
-        "duration": 135
+    {   "song": "My Heart Will Go On",
+        "artist": "Celine Dion",
+        "genre" : "Pop",
+        "duration": 281
     },
-    {   "song": "Song 6",
-        "artist": "Artist 6",
-        "genre" : "Hiphop",
-        "duration": 135
+    {   "song": "Ring of Fire",
+        "artist": "Johnny Cash",
+        "genre" : "Country",
+        "duration": 155
     },
-    {   "song": "Song 7",
-        "artist": "Artist 7",
-        "genre" : "Hiphop",
-        "duration": 135
+    {   "song": "Bohemian Rhapsody",
+        "artist": "Queen",
+        "genre" : "Rock",
+        "duration": 354
     },
-    {   "song": "Song 8",
-        "artist": "Artist 8",
+    {   "song": "Drop It Like It's Hot",
+        "artist": "Snoop Dogg",
         "genre" : "Hiphop",
-        "duration": 135
+        "duration": 266
     },
-    {   "song": "Song 9",
-        "artist": "Artist 9",
-        "genre" : "Hiphop",
-        "duration": 135
+    {   "song": "Umbrella",
+        "artist": "Rihanna",
+        "genre" : "Pop",
+        "duration": 275
     },
-    {   "song": "Song 10",
-        "artist": "Artist 10",
-        "genre" : "Hiphop",
-        "duration": 135
+    {   "song": "Mr. Brightside",
+        "artist": "The Killers",
+        "genre" : "Rock",
+        "duration": 223
     },
-    {   "song": "Aaaaaa",
-        "artist": "Artist 10",
+    {   "song": "Hypnotize",
+        "artist": "The Notorious B.I.G.",
         "genre" : "Hiphop",
-        "duration": 135
+        "duration": 230
     }
 ]
