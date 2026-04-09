@@ -216,3 +216,62 @@ h1 {
     color: gray;
     padding: 4px;
 }
+
+
+
+/* food menu  */
+
+.menu-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.menuItemCard {
+    background: #c0c0c0;
+    border-radius: 12px;
+    padding: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.menuItemImg {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background: white;
+    border-radius: 8px;
+}
+
+.menuItemInfo {
+    flex: 1;
+}
+
+.menuItemName {
+    font-weight: bold;
+    margin: 0;
+}
+
+.menuItemIngredients {
+    font-size: smaller;
+    white-space: pre-line;
+    margin: 0;
+}
+
+.menuItemBottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menuItemQty {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}

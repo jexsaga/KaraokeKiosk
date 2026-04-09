@@ -306,3 +306,117 @@ function addToQueue(song){
 }
 const nextBtn = document.getElementById("nextBtn");
 nextBtn.addEventListener("click", nextInQueue);
+
+
+
+//--------------
+//Menuuuuuuuuu
+//----------
+
+let menu = [];
+const menuFile = "./media/menu.json";
+loadData(menuFile, setMenu);
+
+
+function setMenu(menuList){
+    menu = menuList;
+    displayMenuItems('food');
+}
+
+
+
+
+//one menu item has menuItem.item, menuItem.price, menuItem.type, menuItem.description and menuItem.image
+function oneMenuItem(menuItem){
+    const div = document.createElement("div");
+    div.className = "menuItemCard";
+
+    const img = document.createElement("img");
+    img.src = menuItem.image;
+    img.alt = menuItem.item;
+    img.className = "menuItemImg";
+
+    //div displayed on the right of the card
+    const infosDiv= document.createElement("div");
+    infosDiv.className = "menuItemInfo";
+
+    const name = document.createElement("p");
+    name.innerText = menuItem.item;
+    name.className = "menuItemName";
+
+    const description = document.createElement("p");
+    description.innerText = menuItem.description;
+    description.className = "menuItemDescription";
+
+    infosDiv.appendChild(name);
+    infosDiv.appendChild(description);
+
+    const bottomDiv = document.createElement("div");
+    bottomDiv.className = "menuItemBottom";
+
+    const quantityDiv = document.createElement("div");
+    quantityDiv.className = "menuItemQuantity";
+
+    const lessBtn = document.createElement("button");
+    lessBtn.innerText = "-";
+    const moreBtn = document.createElement("button");
+    moreBtn.innerText = "+";
+
+    const quantityDisplay = document.createElement("span");
+    quantityDisplay.innerText = "0";
+
+    let quantity = 0;
+    lessBtn.addEventListener("click", () =>{
+        if (quantity >= 1){
+            quantity--;
+            quantityDisplay.innerText = quantity;
+        }
+    });
+    moreBtn.addEventListener("click", () =>{
+            quantity++;
+            quantityDisplay.innerText = quantity;
+        
+    });
+
+    quantityDiv.appendChild(lessBtn);
+    quantityDiv.appendChild(quantityDisplay);
+    quantityDiv.appendChild(moreBtn);
+
+    const price = document.createElement("p");
+    price.innerText = menuItem.price;
+    price.className = "menuItemPrice";
+
+    bottomDiv.appendChild(quantityDiv);
+    bottomDiv.appendChild(price);
+
+    div.appendChild(img);
+    div.appendChild(infosDiv);
+    div.appendChild(bottomDiv);
+
+    return div;
+}
+
+function displayMenuItems(menuType){
+
+    const menuCatalog = document.getElementById("food-block");
+    menuCatalog.innerHTML = "";
+
+    const filtered = menu.filter(item => item.type === menuType);
+
+    let div = document.createElement("div");
+    div.className = "menu-row";
+
+    for (let i = 0; i < filtered.length; i++){
+        
+        div.appendChild(oneMenuItem(filtered[i]));
+
+        if((i + 1) % 3 === 0){
+            menuCatalog.appendChild(div);
+            div = document.createElement("div");
+            div.className = "menu-row";
+        } 
+    }
+    if (div.children.length > 0) {
+        menuCatalog.appendChild(div);
+    }
+}

@@ -52,15 +52,16 @@
             <!-- to display food tab correctly need to set display to flex and not block -->
             <div id ="food-tab" style="display:none">
                 <div id="food-block-titles">
-                    <button>Food</button>
-                    <button>Drinks</button>
-                    <button>Appetizers</button>
-                    <button>Specials</button>
+                    <button onclick="displayMenuItems('food')">Food</button>
+                    <button onclick="displayMenuItems('drink')">Drinks</button>
+                    <button onclick="displayMenuItems('appetizer')">Appetizers</button>
+                    <button onclick="displayMenuItems('special')">Specials</button>
                 </div>
                 <div id="food-block">
                     <!-- exmaple -->
                     <!-- this div is made to hold columns of divs -->
                     <!-- insert divs of 3 items  in a rows-->
+                     
                     <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
                         <p>item1</p>
                         <p>item2</p>
