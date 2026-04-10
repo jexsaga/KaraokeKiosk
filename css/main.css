@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: gray;
 }
 
 h1 {
@@ -45,6 +46,7 @@ button {
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
+    background-color: white;
     /* border-bottom: 1px solid #ddd; */
 }
 
@@ -83,7 +85,6 @@ button {
 #main-content {
     display: flex;
     flex-direction: row;
-    background-color: grey;
     align-items: flex-start;
     justify-content: center;
     height: 75vh;
