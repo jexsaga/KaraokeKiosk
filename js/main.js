@@ -1,8 +1,5 @@
 // js for the index.html
 
-let songs = [];
-// let mode = "recos";
-
 // toggle display tabs between menu and music by setting display to flex or none
 function switchTabs(switchTo){
     const musicTab = document.getElementById("music-tab");
@@ -100,11 +97,6 @@ function displayQueue(){
     }
 }
 
-//set genres
-// function setGenres(genresList){
-//     genres = genresList;
-// }
-
 // displays recommended songs by genre
 function displaySongsByGenre(requestGenre){
     const catalogBlock = document.getElementById("recs");
@@ -151,34 +143,11 @@ function displaySongsByGenre(requestGenre){
     }
 }
 
-// music/menu buttons
-const musicBtn = document.getElementById("musicBtn");
-const menuBtn = document.getElementById("menuBtn");
-menuBtn.classList.add("inactiveTab");
-musicBtn.addEventListener('click', () => switchTabs("music"));
-menuBtn.addEventListener('click', () => switchTabs("menu"));
-
-// fetch catalog data and display
-let music = [];
-const musicRecsFile = "./media/musicrecs.json";
-loadData(musicRecsFile, setMusic);
-
 function setSongs(songsList){
     songs = songsList;
     addToQueue(songs[1]);
     addToQueue(songs[4]);
 }
-
-// temp queue
-let queue = [
-    // {'song' : 'La vie en rose 0', 'artist' : 'so and so'},
-    // {'song' : 'La vie en rose 1', 'artist' : 'so and so'},
-    // {'song' : 'La vie en rose 2', 'artist' : 'so and so'},
-    // songs[0]
-    
-]
-
-displayQueue();
 
 // removing songs from queue
 function removeFromQueue(index){
@@ -186,31 +155,9 @@ function removeFromQueue(index){
     displayQueue();
 }
 
-// genre types
-// let genres = {};
-// const genresFile = "./media/genres.json";
-// loadData(genresFile, setGenres);
-
-// genre back button   //NINA : i commented temporarly this bc it made the search not working
-
-//const genreBack = document.getElementById("genre-back");
-//genreBack.addEventListener('click', displayMusicRecs);
-
-
 //----------------
 //search bar
 //---------------------
-
-//when search is clicked and inputed, list of songs appears
-//set genres
-const searchbar = document.getElementById("searchbar");
-
-
-
-
-const songsFile = "./media/music.json"
-loadData(songsFile, setSongs)
-
 
 //display the songs that fit with the input in the searchbar
 function searchSongs() {
@@ -277,21 +224,6 @@ function clearSearch(){
 // bottom bar
 //--------------------- 
 
-// play/pause toggle to change button state 
-const playPauseBtn = document.getElementById("playPauseBtn");
-const playBtnIcon = document.getElementById("playBtnIcon");
-let isPlaying = true; 
-playPauseBtn.addEventListener("click", () => {
-    if (isPlaying) {
-        playBtnIcon.src = "/media/pause_btn.png";
-        playBtnIcon.alt = "pause";
-    } else {
-        playBtnIcon.src = "/media/play_btn.png";
-        playBtnIcon.alt = "play";
-    }
-    isPlaying = !isPlaying;
-});
-
 // moving next in the queue 
 function nextInQueue() {
     let newCurrentSong = queue.shift();
@@ -301,9 +233,10 @@ function nextInQueue() {
 
     let p_song = document.createElement("p");
     p_song.innerText = newCurrentSong.song;
+    p_song.classList.add('currrent-song');
     let p_artist = document.createElement("p");
     p_artist.innerText = newCurrentSong.artist;
-    p_artist.style.fontSize = 'smaller';
+    p_artist.classList.add('current-artist');
     currentSongDiv.appendChild(p_song);
     currentSongDiv.appendChild(p_artist);
 
@@ -315,9 +248,6 @@ function addToQueue(song){
     queue.push(song);
     displayQueue();
 }
-const nextBtn = document.getElementById("nextBtn");
-nextBtn.addEventListener("click", nextInQueue);
-
 
 // help and fx
 function displayFX(){
@@ -340,41 +270,14 @@ function displayHelp(){
 
 }
 
-
-const fxBtn = document.getElementById("fx");
-fxBtn.addEventListener('click', displayFX);
-const fx1Btn = document.getElementById("fx1");
-fx1Btn.addEventListener('click', displayFX);
-const fx2Btn = document.getElementById("fx2");
-fx2Btn.addEventListener('click', displayFX);
-const fx3Btn = document.getElementById("fx3");
-fx3Btn.addEventListener('click', displayFX);
-const helpBtn = document.getElementById("help");
-helpBtn.addEventListener('click', displayHelp);
-const helpYesBtn = document.getElementById("help-yes");
-helpYesBtn.addEventListener('click', displayHelp);
-const helpNoBtn = document.getElementById("help-no");
-helpNoBtn.addEventListener('click', displayHelp);
-
-
-
 //--------------
 //Menuuuuuuuuu
 //----------
-
-let menu = [];
-const menuFile = "./media/menu.json";
-loadData(menuFile, setMenu);
-
 
 function setMenu(menuList){
     menu = menuList;
     displayMenuItems('food');
 }
-
-
-
-
 //one menu item has menuItem.item, menuItem.price, menuItem.type, menuItem.description and menuItem.image
 function oneMenuItem(menuItem){
     const div = document.createElement("div");
@@ -419,12 +322,18 @@ function oneMenuItem(menuItem){
         if (quantity >= 1){
             quantity--;
             quantityDisplay.innerText = quantity;
+            const index = cart.indexOf(menuItem);
+            if (index > -1) {
+                cart.splice(index, 1);
+            }
+            console.log(cart);
         }
     });
     moreBtn.addEventListener("click", () =>{
             quantity++;
             quantityDisplay.innerText = quantity;
-        
+            cart.push(menuItem);
+            console.log(cart);
     });
 
     quantityDiv.appendChild(lessBtn);
@@ -469,3 +378,69 @@ function displayMenuItems(menuType){
         menuCatalog.appendChild(div);
     }
 }
+
+
+let songs = [];
+
+// music/menu buttons
+const musicBtn = document.getElementById("musicBtn");
+const menuBtn = document.getElementById("menuBtn");
+menuBtn.classList.add("inactiveTab");
+musicBtn.addEventListener('click', () => switchTabs("music"));
+menuBtn.addEventListener('click', () => switchTabs("menu"));
+
+// fetch catalog data and display
+let music = [];
+const musicRecsFile = "./media/musicrecs.json";
+loadData(musicRecsFile, setMusic);
+
+// temp queue
+let queue = [];
+
+displayQueue();
+
+//when search is clicked and inputed, list of songs appears
+//set genres
+const searchbar = document.getElementById("searchbar");
+
+const songsFile = "./media/music.json"
+loadData(songsFile, setSongs)
+
+// play/pause toggle to change button state 
+const playPauseBtn = document.getElementById("playPauseBtn");
+const playBtnIcon = document.getElementById("playBtnIcon");
+let isPlaying = true; 
+playPauseBtn.addEventListener("click", () => {
+    if (isPlaying) {
+        playBtnIcon.src = "/media/pause_btn.png";
+        playBtnIcon.alt = "pause";
+    } else {
+        playBtnIcon.src = "/media/play_btn.png";
+        playBtnIcon.alt = "play";
+    }
+    isPlaying = !isPlaying;
+});
+
+const nextBtn = document.getElementById("nextBtn");
+nextBtn.addEventListener("click", nextInQueue);
+
+const fxBtn = document.getElementById("fx");
+fxBtn.addEventListener('click', displayFX);
+const fx1Btn = document.getElementById("fx1");
+fx1Btn.addEventListener('click', displayFX);
+const fx2Btn = document.getElementById("fx2");
+fx2Btn.addEventListener('click', displayFX);
+const fx3Btn = document.getElementById("fx3");
+fx3Btn.addEventListener('click', displayFX);
+const helpBtn = document.getElementById("help");
+helpBtn.addEventListener('click', displayHelp);
+const helpYesBtn = document.getElementById("help-yes");
+helpYesBtn.addEventListener('click', displayHelp);
+const helpNoBtn = document.getElementById("help-no");
+helpNoBtn.addEventListener('click', displayHelp);
+
+let menu = [];
+const menuFile = "./media/menu.json";
+loadData(menuFile, setMenu);
+
+let cart = [];
