@@ -1,19 +1,19 @@
 [
     { 
         "genre": "Pop",
-        "image": "./media/genres_sqr.png" 
+        "image": "./media/pop.jpeg" 
     },
     { 
         "genre": "Rock",
-        "image": "./media/genres_sqr.png"
+        "image": "./media/rock.jpeg"
     },
     { 
         "genre": "Hiphop",
-        "image": "./media/genres_sqr.png"
+        "image": "./media/hiphop.jpeg"
     },
     { 
         "genre": "Country",
-        "image": "./media/genres_sqr.png" 
+        "image": "./media/country.jpeg" 
     },
     { 
         "genre": "Genre 5",
