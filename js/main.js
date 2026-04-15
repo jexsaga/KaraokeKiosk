@@ -379,6 +379,23 @@ function displayMenuItems(menuType){
     }
 }
 
+// toggle display tabs between menu and music by setting display to flex or none
+function switchTabsMenu(switchTo){
+    const musicTab = document.getElementById("music-tab");
+    const menuTab = document.getElementById("food-tab");
+    if (switchTo == "music"){
+        musicTab.style.display = "flex";
+        menuTab.style.display = "none";
+        menuBtn.classList.add("inactiveTab");
+        musicBtn.classList.remove("inactiveTab");
+    } else {
+        musicBtn.classList.add("inactiveTab");
+        menuBtn.classList.remove("inactiveTab");
+        musicTab.style.display = "none";
+        menuTab.style.display = "flex";
+    }
+}
+
 
 let songs = [];
 
