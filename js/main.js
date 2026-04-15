@@ -381,18 +381,33 @@ function displayMenuItems(menuType){
 
 // toggle display tabs between menu and music by setting display to flex or none
 function switchTabsMenu(switchTo){
-    const musicTab = document.getElementById("music-tab");
-    const menuTab = document.getElementById("food-tab");
-    if (switchTo == "music"){
-        musicTab.style.display = "flex";
-        menuTab.style.display = "none";
-        menuBtn.classList.add("inactiveTab");
-        musicBtn.classList.remove("inactiveTab");
-    } else {
-        musicBtn.classList.add("inactiveTab");
-        menuBtn.classList.remove("inactiveTab");
-        musicTab.style.display = "none";
-        menuTab.style.display = "flex";
+    
+    if (switchTo == "food"){
+        // foodBtn.classList.add("inactiveTab");
+        drinkBtn.classList.add("inactiveBtn");
+        appetizerBtn.classList.add("inactiveBtn");
+        specialBtn.classList.add("inactiveBtn");
+        foodBtn.classList.remove("inactiveBtn");
+    } else  if (switchTo == "drink"){
+        foodBtn.classList.add("inactiveBtn");
+        // drinkBtn.classList.add("inactiveTab");
+        appetizerBtn.classList.add("inactiveBtn");
+        specialBtn.classList.add("inactiveBtn");
+        drinkBtn.classList.remove("inactiveBtn");
+    }
+    else  if (switchTo == "appetizer"){
+        foodBtn.classList.add("inactiveBtn");
+        drinkBtn.classList.add("inactiveBtn");
+        // appetizerBtn.classList.add("inactiveTab");
+        specialBtn.classList.add("inactiveBtn");
+        appetizerBtn.classList.remove("inactiveBtn");
+    }
+    else{
+        foodBtn.classList.add("inactiveBtn");
+        drinkBtn.classList.add("inactiveBtn");
+        appetizerBtn.classList.add("inactiveBtn");
+        // specialBtn.classList.add("inactiveTab");
+        specialBtn.classList.remove("inactiveBtn");
     }
 }
 
@@ -437,6 +452,21 @@ playPauseBtn.addEventListener("click", () => {
     }
     isPlaying = !isPlaying;
 });
+
+// food type buttons
+const foodBtn = document.getElementById("foodBtn");
+const drinkBtn = document.getElementById("drinkBtn");
+const appetizerBtn = document.getElementById("appetizerBtn");
+const specialBtn = document.getElementById("specialBtn");
+
+drinkBtn.classList.add("inactiveBtn");
+appetizerBtn.classList.add("inactiveBtn");
+specialBtn.classList.add("inactiveBtn");
+// drinkBtn.classList.add("inactiveTab");
+foodBtn.addEventListener('click', () => switchTabsMenu("food"));
+drinkBtn.addEventListener('click', () => switchTabsMenu("drink"));
+appetizerBtn.addEventListener('click', () => switchTabsMenu("appetizer"));
+specialBtn.addEventListener('click', () => switchTabsMenu("special"));
 
 const nextBtn = document.getElementById("nextBtn");
 nextBtn.addEventListener("click", nextInQueue);
