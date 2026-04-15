@@ -1,7 +1,7 @@
 [
     { 
         "genre": "Karaoke Classics",
-        "image": "./media/genres_sqr.png" 
+        "image": "./media/karaoke_classics.jpg" 
     },
     { 
         "genre": "Pop",
@@ -21,34 +21,34 @@
     },
     { 
         "genre": "R&B",
-        "image": "./media/genres_sqr.png"
+        "image": "./media/rnb.png"
     },
     { 
         "genre": "Funk",
-        "image": "./media/genres_sqr.png" 
+        "image": "./media/funk.jpeg" 
     },
     { 
         "genre": "Christmas Songs",
-        "image": "./media/genres_sqr.png"
+        "image": "./media/christmas.jpeg"
     },
     { 
         "genre": "Folk",
-        "image": "./media/genres_sqr.png" 
+        "image": "./media/folk.jpg" 
     },
     { 
         "genre": "Soul",
-        "image": "./media/genres_sqr.png" 
+        "image": "./media/soul.jpg" 
     },
     { 
         "genre": "80s Hits",
-        "image": "./media/genres_sqr.png" 
+        "image": "./media/80s.jpeg" 
     },
     { 
         "genre": "90s Hits",
-        "image": "./media/genres_sqr.png" 
+        "image": "./media/90s.jpeg" 
     },
     { 
         "genre": "Early 2000s Hits",
-        "image": "./media/genres_sqr.png" 
+        "image": "./media/00s.jpeg" 
     }
 ]
