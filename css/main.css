@@ -33,6 +33,13 @@ button {
     color :  var(--light-text);
 }
 
+#session-timer{
+    text-align: center;
+    font-weight: bold;
+    color : var(--light-text);
+    
+}
+
 #fx, #help {
     background-color: var(--button-fx-help);
     color : var(--light-text);
@@ -134,7 +141,28 @@ button {
     text-align: center;
     display: flex;
     justify-content: space-between;
-    border-top: 2px solid var(--queue-background);
+    height: 66px;
+    box-sizing: border-box;
+    padding: 0 12px;
+    align-items: center;
+    /* border-top: 2px solid var(--queue-background); */
+}
+
+#progress-bar {
+    position: fixed;
+    bottom : 66px;
+    left : 0;
+    width : 100%;
+    height: 4px;
+    background-color: var(--button-fx-help);
+    z-index: 100;
+}
+
+#progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--button-music);
+    transition: width 0.9s, linear;
 }
 
 #music-tab{
@@ -163,6 +191,12 @@ button {
     padding: 3px 16px;
     overflow: hidden;
     gap : 12px;
+}
+
+#song-time{
+    font-size: 0.85em;
+    color : var(--light-text);
+
 }
 
 #queue-block, #catalog-block {

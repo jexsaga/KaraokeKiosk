@@ -8,6 +8,7 @@
     </head>
     <body>
         <header class="site-header">
+            <div id="session-timer">2:00:00</div>
             <div id="top-bar">
                 <button id="fx">FX</button>
                 <div id="center-buttons">
@@ -65,8 +66,18 @@
                 </div>
             </div>
          </div>
+
+         <div id="progress-bar">
+            <div id="progress-fill"></div>
+         </div>
+
          <div id="bottom-bar">
             <div id="currentSong">
+            </div>
+            <div id="song-time">
+                <span id="time-elapsed">0:00</span>
+                <span> / </span>
+                <span id="time-total"> 0:00</span>
             </div>
             <div id="bottomBarBtns">
                 <button id="playPauseBtn">

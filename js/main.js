@@ -224,29 +224,83 @@ function clearSearch(){
 // bottom bar
 //--------------------- 
 
+let currentSong = null;
+let songElapsed = 0;
+let songInterval = null;
+
+function formatTime(seconds){
+    const m = Math.floor(seconds / 60);
+    const s = String(Math.floor(seconds % 60)).padStart(2, '0');
+    return `${m}:${s}`;
+}
+
+function updateProgessBar(){
+    if (!currentSong) return;
+    const pourcentage = Math.min((songElapsed/currentSong.duration) * 100, 100);
+    document.getElementById("progress-fill").style.width = pourcentage + "%";
+    document.getElementById("time-elapsed").innerText = formatTime(songElapsed);
+    document.getElementById("time-total").innerText = formatTime(currentSong.duration);
+}
+
+function startSongTimer(){
+    clearInterval(songInterval);
+    songElapsed = 0;
+    updateProgessBar();
+    if(isPlaying){
+        songInterval = setInterval(()=> {
+            if (isPlaying){
+                songElapsed++;
+                updateProgessBar();
+                if( songElapsed>=currentSong.duration){
+                    clearInterval(songInterval);
+                    if(queue.length>0){
+                        nextInQueue();
+                    }else{
+                        currentSong = null;
+                        document.getElementById("currentSong").innerHTML="";
+                        document.getElementById("progress-fill").style.width="0%";
+                        document.getElementById("time-elapsed").innerText="0:00";
+                        document.getElementById("time-total").innerHTML="0.00";
+                    }
+                }
+            }
+        },1000);    
+    }
+}
+
+
 // moving next in the queue 
 function nextInQueue() {
-    let newCurrentSong = queue.shift();
-    console.log("Updated queue:", queue);
+    if (queue.length === 0) return;
+    // let newCurrentSong = queue.shift();
+    currentSong = queue.shift();
+    // console.log("Updated queue:", queue);
     let currentSongDiv = document.getElementById("currentSong");
     currentSongDiv.innerHTML = "";
 
     let p_song = document.createElement("p");
-    p_song.innerText = newCurrentSong.song;
+    // p_song.innerText = newCurrentSong.song;
+    p_song.innerText = currentSong.song;
     p_song.classList.add('currrent-song');
     let p_artist = document.createElement("p");
-    p_artist.innerText = newCurrentSong.artist;
+    // p_artist.innerText = newCurrentSong.artist;
+    p_artist.innerText = currentSong.artist;
     p_artist.classList.add('current-artist');
     currentSongDiv.appendChild(p_song);
     currentSongDiv.appendChild(p_artist);
 
     displayQueue();
+    startSongTimer();
 }
 
 //add a song to the queue
 function addToQueue(song){
     queue.push(song);
     displayQueue();
+
+    if(!currentSong){
+        nextInQueue;
+    }
 }
 
 // help and fx
@@ -268,6 +322,34 @@ function displayHelp(){
         helpDiv.style.display = "none";
     }
 
+}
+
+//------------
+//Timer of the session !!
+//--------
+
+const SESSION_DURATION = 2 * 60 * 60; //2 h
+let sessionRemaining = SESSION_DURATION;
+let sessionInterval = null;
+ 
+function formatSessionTime(seconds) {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = String(seconds % 60);
+    return h > 0 ? `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}` : `${m}:${s}`;
+}
+ 
+function startSessionTimer() {
+    sessionInterval = setInterval(() => {
+        if (sessionRemaining > 0) {
+            sessionRemaining--;
+            const el = document.getElementById("session-timer");
+            el.innerText = formatSessionTime(sessionRemaining);
+        } else {
+            clearInterval(sessionInterval);
+            document.getElementById("session-timer").innerText = "End of session";
+        }
+    }, 1000);
 }
 
 //--------------
@@ -441,17 +523,38 @@ loadData(songsFile, setSongs)
 // play/pause toggle to change button state 
 const playPauseBtn = document.getElementById("playPauseBtn");
 const playBtnIcon = document.getElementById("playBtnIcon");
-let isPlaying = true; 
+let isPlaying = false; 
+
 playPauseBtn.addEventListener("click", () => {
+    isPlaying = !isPlaying;
+
     if (isPlaying) {
         playBtnIcon.src = "/media/pause_btn.png";
         playBtnIcon.alt = "pause";
+        if(currentSong && !songInterval){
+            songInterval = setInterval(() => {
+                if(isPlaying){
+                    songElapsed++;
+                    updateProgessBar();
+                    if(songElapsed >= currentSong.duration){
+                        clearInterval(songInterval);
+                        songInterval = null;
+                        if(queue.length>0) nextInQueue();
+                    }
+                }
+            }, 1000);
+        }
     } else {
         playBtnIcon.src = "/media/play_btn.png";
         playBtnIcon.alt = "play";
+
+        clearInterval(songInterval);
+        songInterval = null;
     }
-    isPlaying = !isPlaying;
+    // isPlaying = !isPlaying; //!!
 });
+
+      
 
 // food type buttons
 const foodBtn = document.getElementById("foodBtn");
@@ -491,3 +594,6 @@ const menuFile = "./media/menu.json";
 loadData(menuFile, setMenu);
 
 let cart = [];
+
+document.getElementById("session-timer").innerText = formatSessionTime(sessionRemaining);
+startSessionTimer();
