@@ -33,7 +33,7 @@
                 <button id="help-no" style="color: white;">No</button>
             </p>
         </div>
-         <div id="main-content">
+         <div id="main-content">                
             <div id ="music-tab" >
                 <div id="music-block-titles">
                     <h1>Queue</h1>
@@ -47,9 +47,10 @@
                                 onkeyup="searchSongs()" 
                                 type="text" name="search" 
                                 placeholder="Search songs...">
-                            <button id="clear-btn" onclick="clearSearch()">✕</button>
+                                <button class="removeBtn" id="clear-btn" onclick="clearSearch()">
+                                    <img class="removeIcon" src="./media/remove_btn.png" alt="remove">
+                                </button>
                         </div>
-                        <!-- <button id="genre-back">back</button> -->
                         <div id="recs"></div>
                     </div>
                 </div>
@@ -63,6 +64,13 @@
                     <button onclick="displayMenuItems('special')" id="specialBtn" class="specialBtn">Specials</button>
                 </div>
                 <div id="food-block">
+                </div>
+                <div id="food-block-cart">
+                    <div id="cart-display" class="cart-display"></div>
+                    <div id="cart-bottom" class="cart-bottom"> 
+                        <p id="cart-total">0.0$</p>
+                        <button id="checkout-btn">Place Order</button>
+                    </div>
                 </div>
             </div>
          </div>

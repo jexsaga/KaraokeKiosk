@@ -27,7 +27,6 @@ async function loadData(file, func){
 
     const result = await response.json();
     func(result);
-    console.log(result);
   } catch (error) {
     console.error(error.message);
   }
@@ -53,7 +52,7 @@ function displayMusicRecs(){
         p.style.backgroundImage = `url(${music[i].image})`;
         p.className = "genre";
         p.addEventListener('click', () => displaySongsByGenre(music[i].genre));
-        console.log(music[i].image)
+
         div.appendChild(p);
         if((i + 1) % 3 === 0){
             catalog.appendChild(div);
@@ -79,7 +78,12 @@ function displayQueue(){
         p_song.style.fontWeight = 'bold';
         let p_artist = document.createElement("p");
         p_artist.innerText = song.artist;
-        // p_artist.style.fontSize = 'smaller';
+        
+        const singer = document.createElement("div");
+        singer.innerText = singers[i].firstName.charAt(0) + singers[i].lastName.charAt(0);
+        singer.classList.add('guest-singer');
+
+
         let remove_btn = document.createElement("button");
         remove_btn.className = "removeBtn";
         remove_btn.addEventListener("click", () => {
@@ -91,6 +95,7 @@ function displayQueue(){
         remove_btn.appendChild(remove_icon);
         div.appendChild(p_song);
         div.appendChild(p_artist);
+        div.appendChild(singer);
         div.appendChild(remove_btn);
         queueBlock.appendChild(div);
         div = document.createElement("div");
@@ -102,12 +107,6 @@ function displayQueue(){
 function displaySongsByGenre(requestGenre){
     const catalogBlock = document.getElementById("recs");
     catalogBlock.innerHTML = "";
-
-    // let div = document.createElement("div");
-    // div.className = "songInGenre";
-    // let genre = genres[requestGenre];
-    // console.log("requestGenre:", requestGenre);
-    // console.log(genre);
 
     document.getElementById("clear-btn").style.display = "block";
 
@@ -147,13 +146,12 @@ function displaySongsByGenre(requestGenre){
 
 function setSongs(songsList){
     songs = songsList;
-    addToQueue(songs[1]);
-    addToQueue(songs[4]);
 }
 
 // removing songs from queue
 function removeFromQueue(index){
     queue.splice(index, 1);
+    singers.splice(index, 1);
     displayQueue();
 }
 
@@ -274,22 +272,26 @@ function startSongTimer(){
 // moving next in the queue 
 function nextInQueue() {
     if (queue.length === 0) return;
-    // let newCurrentSong = queue.shift();
     currentSong = queue.shift();
-    // console.log("Updated queue:", queue);
     let currentSongDiv = document.getElementById("currentSong");
     currentSongDiv.innerHTML = "";
 
     let p_song = document.createElement("p");
-    // p_song.innerText = newCurrentSong.song;
     p_song.innerText = currentSong.song;
     p_song.classList.add('currrent-song');
     let p_artist = document.createElement("p");
-    // p_artist.innerText = newCurrentSong.artist;
     p_artist.innerText = currentSong.artist;
     p_artist.classList.add('current-artist');
     currentSongDiv.appendChild(p_song);
     currentSongDiv.appendChild(p_artist);
+    
+    // if (singers.length > 0){
+    //     const singer = document.createElement("div");
+    //     singer.innerText = singers[i].firstName.charAt(0) + singers[i].lastName.charAt(0);
+    //     singer.classList.add('guest-singer');
+    //     singer.classList.add('white');
+    //     currentSongDiv.appendChild(singer);
+    // }
 
     displayQueue();
     startSongTimer();
@@ -298,11 +300,23 @@ function nextInQueue() {
 //add a song to the queue
 function addToQueue(song){
     queue.push(song);
+    const singer = assignSinger();
+    singers.push(singer);
+    console.log(singer);
+    console.log(singers);
     displayQueue();
 
     if(!currentSong){
         nextInQueue;
     }
+}
+
+function assignSinger(){
+    // temp function to assign who is singing
+    const n = guests.length-1;
+    console.log(guests);
+    const random = Math.floor(Math.random() * (n + 1));
+    return guests[random];
 }
 
 // help and fx
@@ -317,7 +331,6 @@ function displayFX(){
 
 function displayHelp(){
     const helpDiv = document.getElementById("help-overlay");
-    console.log(helpDiv.style.display);
     if (helpDiv.style.display == "none" || helpDiv.style.display == ""){
         helpDiv.style.display = "flex";
     } else {
@@ -409,15 +422,15 @@ function oneMenuItem(menuItem){
             const index = cart.indexOf(menuItem);
             if (index > -1) {
                 cart.splice(index, 1);
+                updateCartDisplay();
             }
-            console.log(cart);
         }
     });
     moreBtn.addEventListener("click", () =>{
             quantity++;
             quantityDisplay.innerText = quantity;
             cart.push(menuItem);
-            console.log(cart);
+            updateCartDisplay();
     });
 
     quantityDiv.appendChild(lessBtn);
@@ -425,7 +438,7 @@ function oneMenuItem(menuItem){
     quantityDiv.appendChild(moreBtn);
 
     const price = document.createElement("p");
-    price.innerText = menuItem.price;
+    price.innerText = "€" + menuItem.price.toFixed(2);
     price.className = "menuItemPrice";
 
     bottomDiv.appendChild(quantityDiv);
@@ -495,6 +508,37 @@ function switchTabsMenu(switchTo){
     }
 }
 
+function updateCartDisplay(){
+    const items = document.getElementById("cart-display");
+    const total = document.getElementById("cart-total");
+    items.innerHTML = "";
+    total.innerText = "";
+    if (cart.length > 0){
+        let total_price = 0;
+        for (menuItem of cart){
+            const itemInCart = document.createElement('div');
+            itemInCart.classList.add('item-in-cart');
+            const name = document.createElement('p');
+            name.innerText = menuItem.item;
+            const price = document.createElement('p');
+            price.innerText = "€" + menuItem.price.toFixed(2);
+            total_price += menuItem.price;
+
+            itemInCart.appendChild(name);
+            itemInCart.appendChild(price);
+            items.appendChild(itemInCart);
+        }
+        total.innerText = "€" + total_price.toFixed(2);
+    } else {
+        total.innerText = "€0.00"
+    }
+}
+
+function setGuests(guestList){
+    guests = guestList;
+    console.log(guests);
+}
+
 
 let songs = [];
 
@@ -512,6 +556,7 @@ loadData(musicRecsFile, setMusic);
 
 // temp queue
 let queue = [];
+let singers = [];
 
 displayQueue();
 
@@ -567,7 +612,6 @@ const specialBtn = document.getElementById("specialBtn");
 drinkBtn.classList.add("inactiveBtn");
 appetizerBtn.classList.add("inactiveBtn");
 specialBtn.classList.add("inactiveBtn");
-// drinkBtn.classList.add("inactiveTab");
 foodBtn.addEventListener('click', () => switchTabsMenu("food"));
 drinkBtn.addEventListener('click', () => switchTabsMenu("drink"));
 appetizerBtn.addEventListener('click', () => switchTabsMenu("appetizer"));
@@ -596,6 +640,17 @@ const menuFile = "./media/menu.json";
 loadData(menuFile, setMenu);
 
 let cart = [];
+updateCartDisplay();
+
+const checkOutBtn = document.getElementById("checkout-btn");
+checkOutBtn.addEventListener('click', ()=>{
+    cart = [];
+    updateCartDisplay();
+});
 
 document.getElementById("session-timer").innerText = formatSessionTime(sessionRemaining);
 startSessionTimer();
+
+let guests = [];
+const guestsFile = './media/guests.json';
+loadData(guestsFile, setGuests);

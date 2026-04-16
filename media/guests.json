@@ -1,12 +1,12 @@
 [
-    { "guest": "Adelaide" },
-    { "guest": "Brian" },
-    { "guest": "Cecilie" },
-    { "guest": "Damien" },
-    { "guest": "Eloise" },
-    { "guest": "Frank" },
-    { "guest": "Greg" },
-    { "guest": "Helene" },
-    { "guest": "Isaac" },
-    { "guest": "Jalil" }
+  { "firstName": "Adelaide", "lastName": "Martin" },
+  { "firstName": "Brian", "lastName": "Dupont" },
+  { "firstName": "Cecilie", "lastName": "Lefevre" },
+  { "firstName": "Damien", "lastName": "Moreau" },
+  { "firstName": "Eloise", "lastName": "Garcia" },
+  { "firstName": "Frank", "lastName": "Bernard" },
+  { "firstName": "Greg", "lastName": "Roux" },
+  { "firstName": "Helene", "lastName": "Fontaine" },
+  { "firstName": "Isaac", "lastName": "Lambert" },
+  { "firstName": "Jalil", "lastName": "Benali" }
 ]
