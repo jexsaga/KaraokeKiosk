@@ -1,23 +1,26 @@
 /* css for the index */
 
 :root { /*VARIABLES*/
-  --main-bg-color: #2C2C2A;
-  --light-text: #F1EFE8;
-  --top-bar: #444441;
-  --button-fx-help : #6e6e67;
-  --button-music : #837aad;
-  --button-menu : #7aad9a;
-  --bottom-bar : #1e0024;
-  --queue-background : #837aad;
-  --music-catalog-background : #372b6c;
-  --menu-tab-selected : #F1EFE8;
+  --main-bg-color: linear-gradient(#3B52C6, #DE4D86);
+  --light-text: #F3F3F3;
+  --dark-text: #1D1128;
+  --top-bar: #1D1128;
+  --button-fx-help : #DE4D86;
+  --button-music : #3B52C6;
+  --button-menu : #3B52C6;
+  --bottom-bar : #1D1128;
+  --queue-background : #FFB365;
+  --menu-item-tab: #FFB365;
+  --music-catalog-background : #DE4D86;
+  --menu-tab-selected : #F3F3F3;
 }
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color:  var(--main-bg-color);
+    /* background-color:  var(--main-bg-color); */
+    background:  var(--main-bg-color);
     color:  var(--light-text);
 }
 
@@ -268,13 +271,13 @@ button {
     text-align: left;
     padding: 4px 10px;
     box-sizing: border-box;
-    border-bottom: 1px solid var(--light-text);
+    border-bottom: 1px solid var(--dark-text);
     color: var(--light-text);
 }
 
 .songInQueue p {
     margin : 0;
-    color : var(--light-text);
+    color : var(--dark-text);
 }
 
 .songInGenre{
@@ -327,6 +330,7 @@ button {
     gap : 6px;
     padding-top : 8px;
     min-width: 100px;
+    min-height: 56px;
 }
 
 #food-block-titles button {
@@ -336,29 +340,30 @@ button {
     border-radius: 6px 0px 0px 6px;
     text-align: center;
     font-weight: bold;
-
+    font-size: 20px;
+    min-height: 60px;
 }
 
 .foodBtn{
     background-color: var(--menu-tab-selected);
-    color : var(--main-bg-color);
+    color : var(--dark-text);
 }
 .drinkBtn{
     background-color: var(--menu-tab-selected);
-    color : var(--main-bg-color);
+    color : var(--dark-text);
 }
 .appetizerBtn{
     background-color: var(--menu-tab-selected);
-    color : var(--main-bg-color);
+    color : var(--dark-text);
 }
 .specialBtn{
     background-color: var(--menu-tab-selected);
-    color : var(--main-bg-color);
+    color : var(--dark-text);
 }
 
 .inactiveBtn {
-    background-color: var(--button-menu);
-    color : var(--light-text);
+    background-color: var(--menu-item-tab);
+    color : var(--dark-text);
 }
 
 #food-block{
@@ -433,7 +438,8 @@ button {
 }
 
 .menuItemCard {
-    background: var(--button-menu);
+    background: var(--menu-item-tab);
+    color: var(--light-text);
     border-radius: 12px;
     padding: 10px;
     width: 200px;
@@ -458,6 +464,7 @@ button {
 .menuItemName {
     font-weight: bold;
     margin: 0;
+    font-size: 24px;
 }
 
 .menuItemIngredients {

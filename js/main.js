@@ -76,9 +76,10 @@ function displayQueue(){
         let song = queue[i];
         let p_song = document.createElement("p");
         p_song.innerText = song.song;
+        p_song.style.fontWeight = 'bold';
         let p_artist = document.createElement("p");
         p_artist.innerText = song.artist;
-        p_artist.style.fontSize = 'smaller';
+        // p_artist.style.fontSize = 'smaller';
         let remove_btn = document.createElement("button");
         remove_btn.className = "removeBtn";
         remove_btn.addEventListener("click", () => {
@@ -120,9 +121,10 @@ function displaySongsByGenre(requestGenre){
         //infos
         let p_song = document.createElement("p");
         p_song.innerText = song.song;
+        p_song.style.fontWeight = 'bold';
         let p_artist = document.createElement("p");
         p_artist.innerText = song.artist;
-        p_artist.style.fontSize = 'smaller';
+        // p_artist.style.fontSize = 'smaller';
 
         //duration
         let p_duration = document.createElement("p");
