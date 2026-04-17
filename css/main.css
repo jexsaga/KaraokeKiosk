@@ -217,8 +217,8 @@ button {
     border-color: var(--dark-text);
     color: var(--dark-text);
     border-radius: 20px;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -584,8 +584,8 @@ button {
 }
 
 #current-singer{
-    width:25px;
-    height:25px;
+    width:30px;
+    height:30px;
 }
 #currentSong{
     display: flex;
