@@ -196,6 +196,12 @@ function searchSongs() {
         let div = document.createElement("div");
         div.className = "songInGenre";
 
+        
+        const left = document.createElement("div");
+        left.classList.add("left-hand");
+        const right = document.createElement("div");
+        right.classList.add("right-hand");
+
         //infos
         let p_song = document.createElement("p");
         p_song.innerText = song.song;
@@ -214,10 +220,12 @@ function searchSongs() {
         btn.innerText="+";
         btn.addEventListener('click', () => addToQueue(song));
 
-        div.appendChild(p_song);
-        div.appendChild(p_artist);
-        div.appendChild(p_duration);
-        div.appendChild(btn);
+        left.appendChild(p_song);
+        left.appendChild(p_artist);
+        right.appendChild(p_duration);
+        right.appendChild(btn);
+        div.appendChild(left);
+        div.appendChild(right);
         catalogBlock.appendChild(div);
         // div = document.createElement("div");
         // div.className = "songInGenre";
