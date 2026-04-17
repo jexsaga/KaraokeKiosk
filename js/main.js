@@ -139,7 +139,8 @@ function displaySongsByGenre(requestGenre){
         //duration
         let p_duration = document.createElement("p");
         const min = Math.floor(song.duration / 60);
-        const sec = song.duration%60;
+        // const sec = song.duration%60;
+        const sec = String(Math.floor(song.duration % 60)).padStart(2, '0');
         p_duration.innerText = `${min}:${sec}`;
 
         //add
@@ -215,7 +216,8 @@ function searchSongs() {
         //duration
         let p_duration = document.createElement("p");
         const min = Math.floor(song.duration / 60);
-        const sec = song.duration%60;
+        // const sec = song.duration%60;
+        const sec = String(Math.floor(song.duration % 60)).padStart(2, '0');
         p_duration.innerText = `${min}:${sec}`;
 
         //add
@@ -360,17 +362,6 @@ function displayHelp(){
         helpDiv.style.display = "none";
     }
 
-}
-
-function getHelp(){
-    displayHelp();
-    const dot = document.getElementById("red-dot");
-    dot.classList.add("active");
-}
-function cancelHelp(){
-    displayHelp();
-    const dot = document.getElementById("red-dot");
-    dot.classList.remove("active");
 }
 
 //------------
@@ -656,21 +647,18 @@ nextBtn.addEventListener("click", nextInQueue);
 
 const fxBtn = document.getElementById("fx");
 fxBtn.addEventListener('click', displayFX);
-
-const fxButtons = document.querySelectorAll(".fxs-btn");
-
-fxButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        btn.classList.toggle("active");
-    });
-});
-
+const fx1Btn = document.getElementById("fx1");
+fx1Btn.addEventListener('click', displayFX);
+const fx2Btn = document.getElementById("fx2");
+fx2Btn.addEventListener('click', displayFX);
+const fx3Btn = document.getElementById("fx3");
+fx3Btn.addEventListener('click', displayFX);
 const helpBtn = document.getElementById("help");
 helpBtn.addEventListener('click', displayHelp);
 const helpYesBtn = document.getElementById("help-yes");
-helpYesBtn.addEventListener('click', getHelp);
+helpYesBtn.addEventListener('click', displayHelp);
 const helpNoBtn = document.getElementById("help-no");
-helpNoBtn.addEventListener('click', cancelHelp);
+helpNoBtn.addEventListener('click', displayHelp);
 
 let menu = [];
 const menuFile = "./media/menu.json";
