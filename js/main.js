@@ -145,6 +145,9 @@ function displaySongsByGenre(requestGenre){
         //add
         let btn = document.createElement("button");
         btn.innerText="+";
+        
+        btn.classList.add("more");
+        console.log(btn.classList);
         btn.addEventListener('click', () => addToQueue(song));
 
         left.appendChild(p_song);
