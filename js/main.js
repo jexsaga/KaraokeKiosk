@@ -73,12 +73,16 @@ function displayQueue(){
     div.className = "songInQueue";
     for (let i = 0; i < queue.length; i++){
         let song = queue[i];
+        const left = document.createElement("div");
+        left.classList.add("left-hand");
         let p_song = document.createElement("p");
         p_song.innerText = song.song;
         p_song.style.fontWeight = 'bold';
         let p_artist = document.createElement("p");
         p_artist.innerText = song.artist;
         
+        const right = document.createElement("div");
+        right.classList.add("right-hand");
         const singer = document.createElement("div");
         singer.innerText = singers[i].firstName.charAt(0) + singers[i].lastName.charAt(0);
         singer.classList.add('guest-singer');
@@ -93,10 +97,12 @@ function displayQueue(){
         remove_icon.className = "removeIcon";
         remove_icon.src = "/media/remove_btn.png";
         remove_btn.appendChild(remove_icon);
-        div.appendChild(p_song);
-        div.appendChild(p_artist);
-        div.appendChild(singer);
-        div.appendChild(remove_btn);
+        left.appendChild(p_song);
+        left.appendChild(p_artist);
+        right.appendChild(singer);
+        right.appendChild(remove_btn);
+        div.appendChild(left);
+        div.appendChild(right);
         queueBlock.appendChild(div);
         div = document.createElement("div");
         div.className = "songInQueue";
@@ -116,6 +122,11 @@ function displaySongsByGenre(requestGenre){
         
         let div = document.createElement("div");
         div.className = "songInGenre";
+        
+        const left = document.createElement("div");
+        left.classList.add("left-hand");
+        const right = document.createElement("div");
+        right.classList.add("right-hand");
 
         //infos
         let p_song = document.createElement("p");
@@ -136,10 +147,12 @@ function displaySongsByGenre(requestGenre){
         btn.innerText="+";
         btn.addEventListener('click', () => addToQueue(song));
 
-        div.appendChild(p_song);
-        div.appendChild(p_artist);
-        div.appendChild(p_duration);
-        div.appendChild(btn);
+        left.appendChild(p_song);
+        left.appendChild(p_artist);
+        right.appendChild(p_duration);
+        right.appendChild(btn);
+        div.appendChild(left);
+        div.appendChild(right);
         catalogBlock.appendChild(div);
     }
 }
