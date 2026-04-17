@@ -129,13 +129,18 @@ button {
     padding: 12px 16px;
 }
 
-.fxs-btn{
+.fxs-btn, .helps-btn {
     background-color: transparent;
     color : var(--light-text);
     border: 1px solid var(--light-text);
     border-radius: 6px;
     padding: 8px 12px;
     text-align: center;
+}
+.helps-btn:active{
+    background-color: var(--light-text);
+    color : var(--dark-text);
+    border-color: var(--light-text);
 }
 .fxs-btn.active{
     background-color: var(--button-music);
@@ -153,6 +158,23 @@ button {
     border: 1px solid var(--button-fx-help);
     flex-direction: column;
     padding: 12px 16px;
+}
+
+.red-dot{
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+}
+.red-dot.active{
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
 }
 
 #main-content {

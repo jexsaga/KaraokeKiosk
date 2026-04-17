@@ -362,6 +362,17 @@ function displayHelp(){
 
 }
 
+function getHelp(){
+    displayHelp();
+    const dot = document.getElementById("red-dot");
+    dot.classList.add("active");
+}
+function cancelHelp(){
+    displayHelp();
+    const dot = document.getElementById("red-dot");
+    dot.classList.remove("active");
+}
+
 //------------
 //Timer of the session !!
 //--------
@@ -657,9 +668,9 @@ fxButtons.forEach(btn => {
 const helpBtn = document.getElementById("help");
 helpBtn.addEventListener('click', displayHelp);
 const helpYesBtn = document.getElementById("help-yes");
-helpYesBtn.addEventListener('click', displayHelp);
+helpYesBtn.addEventListener('click', getHelp);
 const helpNoBtn = document.getElementById("help-no");
-helpNoBtn.addEventListener('click', displayHelp);
+helpNoBtn.addEventListener('click', cancelHelp);
 
 let menu = [];
 const menuFile = "./media/menu.json";
