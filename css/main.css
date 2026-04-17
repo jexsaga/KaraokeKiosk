@@ -224,6 +224,11 @@ button {
     justify-content: center;
     align-items: center;
 }
+.guest-singer.white {
+    color: var(--light-text);
+    border-color: var(--light-text);
+}
+
 .left-hand{
     display: flex;
     flex-direction: row;
@@ -244,6 +249,8 @@ button {
 #song-time{
     font-size: 0.85em;
     color : var(--light-text);
+    flex: 1;
+    text-align: center;
 }
 
 #queue-block, #catalog-block {
@@ -566,4 +573,36 @@ button {
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+#bottomBarBtns{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    flex: 1;
+}
+
+#current-singer{
+    width:25px;
+    height:25px;
+}
+#currentSong{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: left;
+    /* text-align: ; */
+    gap: 12px;
+    flex: 1;
+}
+
+.currrent-song{
+    font-size: 1.05em;
+    color : var(--light-text);
+}
+
+.current-artist{
+    font-size: 0.65em;
+    color : var(--light-text);
 }

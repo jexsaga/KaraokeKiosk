@@ -306,13 +306,12 @@ function nextInQueue() {
     currentSongDiv.appendChild(p_song);
     currentSongDiv.appendChild(p_artist);
     
-    // if (singers.length > 0){
-    //     const singer = document.createElement("div");
-    //     singer.innerText = singers[i].firstName.charAt(0) + singers[i].lastName.charAt(0);
-    //     singer.classList.add('guest-singer');
-    //     singer.classList.add('white');
-    //     currentSongDiv.appendChild(singer);
-    // }
+    if (singers.length > 0){
+        const singer = document.getElementById("current-singer");
+        const s = singers.shift();
+        singer.innerText = s.firstName.charAt(0) + s.lastName.charAt(0);
+        singer.classList.add('guest-singer', 'white');
+    }
 
     displayQueue();
     startSongTimer();
