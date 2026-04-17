@@ -121,21 +121,35 @@ button {
     display: none;
     position: absolute;
     align-items: center;
-    top: 70px;
+    top: 88px;
     left: 0;
-    background-color: var(--main-bg-color);
+    background: var(--button-fx-help);
     border: 1px solid var(--button-fx-help);
     flex-direction: column;
     padding: 12px 16px;
+}
+
+.fxs-btn{
+    background-color: transparent;
+    color : var(--light-text);
+    border: 1px solid var(--light-text);
+    border-radius: 6px;
+    padding: 8px 12px;
+    text-align: center;
+}
+.fxs-btn.active{
+    background-color: var(--button-music);
+    color : var(--light-text);
+    border-color: var(--button-music);
 }
 
 #help-overlay {
     display: none;
     position: absolute;
     align-items: center;
-    top: 70px;
+    top: 88px;
     right: 0;
-    background-color: var(--main-bg-color);
+    background: var(--button-fx-help);
     border: 1px solid var(--button-fx-help);
     flex-direction: column;
     padding: 12px 16px;
@@ -395,7 +409,7 @@ button {
     display: flex;
     flex-direction: column;
     height: 75%;
-    background-color: var(--queue-background);
+    background-color: var(--button-fx-help);
 }
 
 .cart-display{

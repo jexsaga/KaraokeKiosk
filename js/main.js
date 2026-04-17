@@ -645,12 +645,15 @@ nextBtn.addEventListener("click", nextInQueue);
 
 const fxBtn = document.getElementById("fx");
 fxBtn.addEventListener('click', displayFX);
-const fx1Btn = document.getElementById("fx1");
-fx1Btn.addEventListener('click', displayFX);
-const fx2Btn = document.getElementById("fx2");
-fx2Btn.addEventListener('click', displayFX);
-const fx3Btn = document.getElementById("fx3");
-fx3Btn.addEventListener('click', displayFX);
+
+const fxButtons = document.querySelectorAll(".fxs-btn");
+
+fxButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.classList.toggle("active");
+    });
+});
+
 const helpBtn = document.getElementById("help");
 helpBtn.addEventListener('click', displayHelp);
 const helpYesBtn = document.getElementById("help-yes");
